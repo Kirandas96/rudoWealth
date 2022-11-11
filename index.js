@@ -33,6 +33,9 @@ const CruiserRouter = require("./Routes/CruiserRoute");
 const BookRouter = require("./Routes/BookRoute");
 
 // routes
+app.get("/", (req, res) => {
+  res.send("Welcome to ConCruise");
+});
 app.use("/costomer", CostomerRouter);
 app.use("/cruiser",CruiserRouter);
 app.use("/book",BookRouter)

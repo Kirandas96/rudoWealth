@@ -15,8 +15,8 @@ BookRouter.get("/:userId", async (req, res) => {
     ,{$project:{boat:1,locationPoints: {$switch: {
         branches: [
            { case: { $lte:[ "$distance", 3 ]}, then: 5 },
-           { case: { $eq: ["$distance",4] }, then: 3 },
-        //    { case: {$and:[{ $gte: [ "distance",0 ] },{ $lte: ["distance",5 ] }]}, then: 3 },
+        //    { case: { $eq: ["$distance",4] }, then: 3 },
+           { case: {$and:[{ $gte: [ "distance",0 ] },{ $lte: ["distance",5 ] }]}, then: 3 },
            { case: { $gte: ["distance", 6 ] }, then: 0 }
         ]
      }},ridingPoints:{$cond: { if: { $lte: [ "$rides", 3 ] }, then: 5, else: 3 }},ratingPoints:{$cond: { if: { $lte: [ "$rating", 3 ] }, then: 5, else: 3 }}}},
