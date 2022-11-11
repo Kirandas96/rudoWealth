@@ -31,7 +31,7 @@ BookRouter.get("/:userId", async (req, res) => {
     {$project:{boat:1,totalPoints:{$add:['$locationPoints','$ridingPoints','$ratingPoints']}}}
     ,{$sort:{totalPoints:-1}}
 ])
-    return res.send(data)
+    return res.send(data[0])
   } catch (error) {
     return res.send(error)
   }  
