@@ -16,3 +16,4 @@ axios.get(url, { headers: { Accept: "application/json" } })
    console.log(res.data);
  });
 
+//example=>rudo costomers=>to get costomer details
